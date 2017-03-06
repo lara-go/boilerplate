@@ -35,7 +35,7 @@ func (c *Config) Debug() bool {
 	return c.App.Debug
 }
 
-// Get value from config.
+// Get value from config using dot-notation.
 func (c *Config) Get(key string) interface{} {
 	value, err := dotaccess.Get(c, key)
 
@@ -46,7 +46,7 @@ func (c *Config) Get(key string) interface{} {
 	return value
 }
 
-// Set value from config.
+// Set value to config using dot-notation.
 func (c *Config) Set(key string, value interface{}) {
 	err := dotaccess.Set(c, key, value)
 
