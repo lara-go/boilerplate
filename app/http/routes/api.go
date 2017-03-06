@@ -13,7 +13,7 @@ func APIRoutes(router *http.Router) {
 	router.GET("/").Action(controller.Index).Middleware(&middleware.Simple{})
 	router.GET("/redirect").Action(controller.Redirect)
 	router.GET("/foo/:bar").Action(controller.FooBar).As("foobar")
-	router.GET("/bar/:baz").Action(controller.BarBaz)
+	router.GET("/bar/:text").Action(controller.BarBaz)
 	router.POST("/form").Action(controller.Form)
 	router.POST("/json").Action(controller.JSON)
 	router.GET("/http-error").Action(controller.HTTPError)

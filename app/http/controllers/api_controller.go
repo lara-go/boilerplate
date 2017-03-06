@@ -31,9 +31,12 @@ func (c *APIController) FooBar(bar string) responses.Response {
 	return responses.NewText(200, "Foo Bar: %s", bar)
 }
 
-// BarBaz accepts bar param but requested response itself.
+// BarBaz accepts param, requesting it from unmarshalling to struct.
 func (c *APIController) BarBaz(request *http.Request) responses.Response {
-	return responses.NewText(200, "Bar Baz: %s", request.Param("baz"))
+	var form Form
+	request.ReadParams(&form)
+
+	return responses.NewText(200, "Bar Baz: %s", form.Text)
 }
 
 // Form accepts POST form request.

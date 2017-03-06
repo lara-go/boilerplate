@@ -21,11 +21,14 @@ func (s *APIRoutesSuite) TestAPIRoutes() {
 
 	e.GET("/").Expect().Status(200)
 	e.GET("/redirect").Expect().Status(200)
-	e.GET("/foo/baz").Expect().Status(200)
 	e.GET("/http-error").Expect().Status(404)
 	e.GET("/custom-error").Expect().Status(500)
 	e.GET("/panic").Expect().Status(500)
 	e.GET("/not-found").Expect().Status(404)
+
+	e.GET("/bar/text1").
+		Expect().Status(200).
+		Body().Contains("text1")
 
 	e.POST("/form").WithFormField("text", "Text input").
 		Expect().Status(200).
