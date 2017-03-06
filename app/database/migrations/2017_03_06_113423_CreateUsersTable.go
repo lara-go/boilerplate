@@ -2,7 +2,7 @@ package migrations
 
 import (
 	"github.com/jinzhu/gorm"
-	"github.com/lara-go/app/app/models"
+	"github.com/lara-go/boilerplate/app/models"
 )
 
 // CreateUsersTable migration.

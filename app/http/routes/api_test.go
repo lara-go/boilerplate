@@ -3,7 +3,7 @@ package routes_test
 import (
 	"testing"
 
-	"github.com/lara-go/app/app/support"
+	"github.com/lara-go/boilerplate/app/support"
 	"github.com/stretchr/testify/suite"
 )
 

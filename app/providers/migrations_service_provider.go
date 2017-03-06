@@ -1,7 +1,7 @@
 package providers
 
 import (
-	"github.com/lara-go/app/app/database/migrations"
+	"github.com/lara-go/boilerplate/app/database/migrations"
 	"github.com/lara-go/larago"
 	"github.com/lara-go/larago/database"
 )

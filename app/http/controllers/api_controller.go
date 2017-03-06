@@ -3,7 +3,7 @@ package controllers
 import (
 	"fmt"
 
-	"github.com/lara-go/app/app/http/requests"
+	"github.com/lara-go/boilerplate/app/http/requests"
 	"github.com/lara-go/larago/http"
 	"github.com/lara-go/larago/http/errors"
 	"github.com/lara-go/larago/http/responses"

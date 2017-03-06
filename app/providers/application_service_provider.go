@@ -1,7 +1,7 @@
 package providers
 
 import (
-	"github.com/lara-go/app/app/commands"
+	"github.com/lara-go/boilerplate/app/commands"
 	"github.com/lara-go/larago"
 	"github.com/lara-go/larago/cache"
 	"github.com/lara-go/larago/database"

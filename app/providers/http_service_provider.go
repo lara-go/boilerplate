@@ -1,7 +1,7 @@
 package providers
 
 import (
-	"github.com/lara-go/app/app/http/routes"
+	"github.com/lara-go/boilerplate/app/http/routes"
 	"github.com/lara-go/larago"
 	larago_middleware "github.com/lara-go/larago/foundation/http/middleware"
 	"github.com/lara-go/larago/http"

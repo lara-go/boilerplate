@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/lara-go/app/app/conf"
-	"github.com/lara-go/app/app/providers"
+	"github.com/lara-go/boilerplate/app/conf"
+	"github.com/lara-go/boilerplate/app/providers"
 	"github.com/lara-go/larago/foundation"
 )
 

@@ -3,7 +3,7 @@ package conf_test
 import (
 	"testing"
 
-	"github.com/lara-go/app/app/conf"
+	"github.com/lara-go/boilerplate/app/conf"
 	"github.com/stretchr/testify/assert"
 )
 

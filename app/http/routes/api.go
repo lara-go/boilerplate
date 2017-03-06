@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"github.com/lara-go/app/app/http/controllers"
-	"github.com/lara-go/app/app/http/middleware"
-	"github.com/lara-go/app/app/http/requests"
+	"github.com/lara-go/boilerplate/app/http/controllers"
+	"github.com/lara-go/boilerplate/app/http/middleware"
+	"github.com/lara-go/boilerplate/app/http/requests"
 	"github.com/lara-go/larago/http"
 )
 
