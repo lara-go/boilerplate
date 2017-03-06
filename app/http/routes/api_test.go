@@ -38,6 +38,9 @@ func (s *APIRoutesSuite) TestAPIRoutes() {
 		Expect().Status(200).
 		JSON().Object().ValueEqual("foo", "Text value")
 
+	e.POST("/json").WithHeader("Accept", "application/json").WithJSON(map[string]interface{}{"text": ""}).
+		Expect().Status(422)
+
 	e.POST("/").Expect().Status(405)
 	e.POST("/bla-bla-ba").Expect().Status(404)
 }

@@ -3,6 +3,7 @@ package controllers
 import (
 	"fmt"
 
+	"github.com/lara-go/app/app/http/requests"
 	"github.com/lara-go/larago/http"
 	"github.com/lara-go/larago/http/errors"
 	"github.com/lara-go/larago/http/responses"
@@ -48,11 +49,8 @@ func (c *APIController) Form(request *http.Request) responses.Response {
 }
 
 // JSON returns JSON formatted application/json response.
-func (c *APIController) JSON(request *http.Request) responses.Response {
-	var form Form
-	request.ReadJSON(&form)
-
-	return responses.NewJSON(200, map[string]string{"foo": form.Text})
+func (c *APIController) JSON(request *requests.PostNews) responses.Response {
+	return responses.NewJSON(200, map[string]string{"foo": request.Text})
 }
 
 // HTTPError sends prepared 404 HTTPError with additional meta info.
