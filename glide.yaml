@@ -1,0 +1,22 @@
+package: github.com/lara-go/boilerplate
+homepage: https://github.com/lara-go/boilerplate
+license: MIT
+owners:
+- name: Maxim Lanin
+  email: max@lanin.me
+  homepage: https://blog.lanin.me
+import:
+- package: github.com/caarlos0/env
+  version: ~2.1.0
+- package: github.com/jinzhu/gorm
+  version: ~1.0.0
+- package: github.com/lara-go/larago
+- package: github.com/maxwellhealth/go-dotaccess
+- package: github.com/urfave/cli
+  version: ~1.19.1
+testImport:
+- package: github.com/stretchr/testify
+  version: ~1.1.4
+  subpackages:
+  - assert
+  - suite
