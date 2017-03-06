@@ -1,6 +1,7 @@
 package providers
 
 import (
+	"github.com/lara-go/app/app/commands"
 	"github.com/lara-go/larago"
 	"github.com/lara-go/larago/cache"
 	"github.com/lara-go/larago/database"
@@ -21,5 +22,9 @@ func (p *ApplicationServiceProvider) Register(application *larago.Application) {
 		&http.ServiceProvider{},
 
 		&HTTPServiceProvider{},
+	)
+
+	application.Commands(
+		&commands.HelloWorld{},
 	)
 }
