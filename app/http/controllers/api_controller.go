@@ -8,12 +8,17 @@ import (
 	"github.com/lara-go/larago/http/responses"
 )
 
+// Form request.
+type Form struct {
+	Text string `schema:"text" json:"text"`
+}
+
 // APIController struct.
 type APIController struct{}
 
 // Index sends plain text as a response.
 func (c *APIController) Index(request *http.Request) string {
-	return fmt.Sprintf("%s: Index", request.Method)
+	return fmt.Sprintf("%s: Index", request.Method())
 }
 
 // Redirect does redirect via route name and param.
@@ -31,9 +36,20 @@ func (c *APIController) BarBaz(request *http.Request) responses.Response {
 	return responses.NewText(200, "Bar Baz: %s", request.Param("baz"))
 }
 
+// Form accepts POST form request.
+func (c *APIController) Form(request *http.Request) responses.Response {
+	var form Form
+	request.ReadForm(&form)
+
+	return responses.NewHTML(200, "Form: <br>%+v", form)
+}
+
 // JSON returns JSON formatted application/json response.
-func (c *APIController) JSON() responses.Response {
-	return responses.NewJSON(200, map[string]string{"foo": "Bar"})
+func (c *APIController) JSON(request *http.Request) responses.Response {
+	var form Form
+	request.ReadJSON(&form)
+
+	return responses.NewJSON(200, map[string]string{"foo": form.Text})
 }
 
 // HTTPError sends prepared 404 HTTPError with additional meta info.
