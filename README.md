@@ -1,1 +1,1 @@
-# LaraGo boilerplate application
+# LaraGo application boilerplate
