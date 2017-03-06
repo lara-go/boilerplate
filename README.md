@@ -1,4 +1,6 @@
-# LaraGo application boilerplate
+# LaraGo boilerplate application
+
+Boilerplate application for [LaraGo Framework](https://github.com/lara-go/larago).
 
 To see it in action just run:
 
