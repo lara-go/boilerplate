@@ -28,4 +28,20 @@ func APIRoutes(router *http.Router) {
 	router.GET("/http-error").Action(controller.HTTPError)
 	router.GET("/custom-error").Action(controller.CustomError)
 	router.GET("/panic").Action(controller.Panic)
+
+	router.Group("/group1", func() {
+		router.GET("/").Action(func() string {
+			return "Group index"
+		})
+
+		router.GET("/path").Action(func() string {
+			return "Group path"
+		})
+
+		router.Group("/group2", func() {
+			router.GET("/path").Action(func() string {
+				return "Nested group path"
+			})
+		})
+	}, &middleware.Simple{})
 }
