@@ -10,12 +10,19 @@ import (
 // HTTPServiceProvider struct.
 type HTTPServiceProvider struct{}
 
-// Boot provider
+// Boot provider.
 func (p *HTTPServiceProvider) Boot(router *http.Router) {
+	// Add ability to automatically validate and inject requests to the route action handler.
+	router.SetArgsInjectors(
+		&http.RequestsInjector{},
+	)
+
+	// Set global middleware.
 	router.Middleware(
 		&larago_middleware.LogRequests{},
 	)
 
+	// Include API routes.
 	routes.APIRoutes(router)
 }
 
