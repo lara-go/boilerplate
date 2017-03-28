@@ -4,9 +4,10 @@ Boilerplate application for [LaraGo Framework](https://github.com/lara-go/larago
 
 ## Installation
 
-1. Clone repository where you want it to be.
+1. Clone repository where you want it to be
 2. Install [Glide dependency management tool](https://glide.readthedocs.io)
 3. Install dependencies via Glide
+4. Update includes
 
 ## Running
 
