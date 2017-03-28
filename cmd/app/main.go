@@ -17,10 +17,11 @@ const (
 )
 
 func main() {
-	application := foundation.
-		MakeApplication(name, version, description).
-		SetConfigLoader(conf.ConfigLoader)
+	// Make application instance.
+	application := foundation.MakeApplication(name, version, description)
 
+	// Register config loader and all service providers.
+	application.SetConfigLoader(conf.ConfigLoader)
 	application.Register(
 		// Register common service providers.
 		&foundation.ServiceProvider{},
@@ -33,5 +34,6 @@ func main() {
 		&providers.ApplicationServiceProvider{},
 	)
 
+	// Handle request to the application.
 	foundation.Handle(application)
 }
