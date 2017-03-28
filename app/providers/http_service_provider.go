@@ -3,7 +3,7 @@ package providers
 import (
 	"github.com/lara-go/boilerplate/app/http/routes"
 	"github.com/lara-go/larago"
-	larago_middleware "github.com/lara-go/larago/foundation/http/middleware"
+	middleware "github.com/lara-go/larago/foundation/http/middleware"
 	"github.com/lara-go/larago/http"
 )
 
@@ -19,7 +19,7 @@ func (p *HTTPServiceProvider) Boot(router *http.Router) {
 
 	// Set global middleware.
 	router.Middleware(
-		&larago_middleware.LogRequests{},
+		&middleware.LogRequests{},
 	)
 
 	// Include API routes.
