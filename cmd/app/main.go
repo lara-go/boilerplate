@@ -24,16 +24,16 @@ func main() {
 	application.SetConfigLoader(conf.ConfigLoader)
 	application.Register(
 		// Register common service providers.
-		&foundation.ServiceProvider{},
-		&validation.ServiceProvider{},
-		&database.ServiceProvider{},
 		&cache.ServiceProvider{},
+		&database.ServiceProvider{},
+		&foundation.ServiceProvider{},
 		&http.ServiceProvider{},
+		&validation.ServiceProvider{},
 
 		// Default application service provider.
 		&providers.ApplicationServiceProvider{},
 	)
 
 	// Handle request to the application.
-	foundation.Handle(application)
+	application.Run()
 }
