@@ -34,6 +34,6 @@ func main() {
 		&providers.ApplicationServiceProvider{},
 	)
 
-	// Handle request to the application.
+	// Handle request by application.
 	application.Run()
 }
