@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/lara-go/boilerplate/app/conf"
 	"github.com/lara-go/boilerplate/app/providers"
+	"github.com/lara-go/larago"
 	"github.com/lara-go/larago/cache"
 	"github.com/lara-go/larago/database"
 	"github.com/lara-go/larago/foundation"
@@ -20,10 +21,14 @@ func main() {
 	// Make application instance.
 	application := foundation.MakeApplication(name, version, description)
 
-	// Register config loader and all service providers.
-	application.SetConfigLoader(conf.ConfigLoader)
+	// Import application config.
+	application.SetConfig(func() larago.Config {
+		return conf.NewConfig()
+	})
+
+	// Register application services.
 	application.Register(
-		// Register common service providers.
+		// Common service providers.
 		&cache.ServiceProvider{},
 		&database.ServiceProvider{},
 		&foundation.ServiceProvider{},

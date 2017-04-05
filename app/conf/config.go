@@ -1,11 +1,6 @@
 package conf
 
-import (
-	"fmt"
-
-	"github.com/lara-go/larago"
-	dotaccess "github.com/maxwellhealth/go-dotaccess"
-)
+import "github.com/lara-go/larago"
 
 // Config of the app.
 type Config struct {
@@ -15,8 +10,8 @@ type Config struct {
 	Logs     *Logs
 }
 
-// ConfigLoader creates and returns a new config instance.
-func ConfigLoader() larago.Config {
+// NewConfig creates and returns a new config instance.
+func NewConfig() larago.Config {
 	return &Config{
 		App:      MakeAppConfig(),
 		Database: MakeDatabaseConfig(),
@@ -33,24 +28,4 @@ func (c *Config) Env() string {
 // Debug returs debug mode state.
 func (c *Config) Debug() bool {
 	return c.App.Debug
-}
-
-// Get value from config using dot-notation.
-func (c *Config) Get(key string) interface{} {
-	value, err := dotaccess.Get(c, key)
-
-	if err != nil {
-		panic(fmt.Sprintf("Can not resolve config value: %s", key))
-	}
-
-	return value
-}
-
-// Set value to config using dot-notation.
-func (c *Config) Set(key string, value interface{}) {
-	err := dotaccess.Set(c, key, value)
-
-	if err != nil {
-		panic(fmt.Sprintf("Can not resolve config value: %s", key))
-	}
 }
