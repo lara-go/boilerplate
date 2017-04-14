@@ -56,6 +56,7 @@ func (c *APIController) JSON(request *requests.PostNews) responses.Response {
 // HTTPError sends prepared 404 HTTPError with additional meta info.
 func (c *APIController) HTTPError() *errors.HTTPError {
 	return errors.NotFoundHTTPError().
+		Report().
 		WithMeta(map[string]string{"foo": "Bar"}).
 		WithContext("Custom context. Can be anything.")
 }
