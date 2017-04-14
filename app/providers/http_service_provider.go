@@ -19,6 +19,7 @@ func (p *HTTPServiceProvider) Boot(router *http.Router) {
 
 	// Set global middleware.
 	router.Middleware(
+		&middleware.CheckForMaintenance{},
 		&middleware.LogRequests{},
 	)
 
