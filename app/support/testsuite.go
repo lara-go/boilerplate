@@ -1,15 +1,9 @@
 package support
 
 import (
-	"github.com/lara-go/boilerplate/app/conf"
-	"github.com/lara-go/boilerplate/app/providers"
+	"github.com/lara-go/boilerplate/app"
 	"github.com/lara-go/larago"
-	"github.com/lara-go/larago/cache"
-	"github.com/lara-go/larago/database"
-	"github.com/lara-go/larago/foundation"
-	"github.com/lara-go/larago/http"
 	"github.com/lara-go/larago/support/testsuite"
-	"github.com/lara-go/larago/validation"
 )
 
 // TestSuite default test suite.
@@ -29,24 +23,7 @@ func (s *TestSuite) TearDownSuite() {
 
 // MakeApplication factory.
 func (s *TestSuite) MakeApplication() *larago.Application {
-	application := foundation.MakeApplication("", "", "")
-
-	application.SetConfig(func() larago.Config {
-		return conf.NewConfig()
-	})
-
-	// Register application services.
-	application.Register(
-		// Common service providers.
-		&cache.ServiceProvider{},
-		&database.ServiceProvider{},
-		&foundation.ServiceProvider{},
-		&http.ServiceProvider{},
-		&validation.ServiceProvider{},
-
-		// Default application service provider.
-		&providers.ApplicationServiceProvider{},
-	)
+	application := app.Bootstrap("", "", "")
 
 	s.BootstrapApplication(application)
 
