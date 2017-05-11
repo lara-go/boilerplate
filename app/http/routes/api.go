@@ -44,4 +44,8 @@ func APIRoutes(router *http.Router) {
 			})
 		})
 	}, &middleware.Simple{})
+
+	http.Facade().GET("/facade").Action(func() string {
+		return "Facade call"
+	})
 }

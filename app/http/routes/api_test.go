@@ -21,6 +21,9 @@ func (s *APIRoutesSuite) TestAPIRoutes() {
 
 	e.GET("/").Expect().Status(200)
 	e.GET("/redirect").Expect().Status(200)
+
+	e.GET("/facade").Expect().Status(200)
+
 	e.GET("/http-error").Expect().Status(404)
 	e.GET("/custom-error").Expect().Status(500)
 	e.GET("/panic").Expect().Status(500)
